@@ -34,8 +34,6 @@ synapse_0 = 2 * np.random.random((input_dim, hidden_dim)) - 1  # 输入层到隐
 synapse_1 = 2 * np.random.random((hidden_dim, output_dim)) - 1
 synapse_h = 2 * np.random.random((hidden_dim, hidden_dim)) - 1
 # 译者注：np.random.random产生的是[0,1)的随机数，2 * [0, 1) - 1 => [-1, 1)，
-# 是为了有正有负更快地收敛，这涉及到如何初始化参数的问题，通常来说都是靠“经验”或者说“启发式规则”，说得直白一点就是“蒙的”！机器学习里面，超参数的选择，大部分都是这种情况，哈哈。。。
-# 我自己试了一下用【0, 2)之间的随机数，貌似不能收敛，用[0,1)就可以，呵呵。。。
 # 以下三个分别对应三个矩阵的变化
 synapse_0_update = np.zeros_like(synapse_0)
 synapse_1_update = np.zeros_like(synapse_1)
@@ -46,7 +44,7 @@ for j in range(500000):
 
     # 下面6行代码，随机产生两个0-128的数字，并查出他们的二进制表示。为了避免相加之和超过256，这里选择两个0-128的数字
     # generate a simple addition problem (a + b = c)
-        a_int = np.random.randint(largest_number / 2)  # int version
+    a_int = np.random.randint(largest_number / 2)  # int version
     a = int2binary[a_int]  # binary encoding
     b_int = np.random.randint(largest_number / 2)  # int version
     b = int2binary[b_int]  # binary encoding
