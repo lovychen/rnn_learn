@@ -2,7 +2,7 @@
 # -*- coding=utf-8 -*-
 import copy, numpy as np
 import json
-np.random.seed(0)  # 固定随机数生成器的种子，便于得到固定的输出，【译者注：完全是为了方便调试用的]
+np.random.seed(0)  # 固定随机数生成器的种子，便于得到固定的输出
 
 
 # compute sigmoid nonlinearity
@@ -125,14 +125,8 @@ for j in range(500000):
             out += x * pow(2, index)
         print(str(a_int) + " + " + str(b_int) + " = " + str(out))
         print("------------")
-mode = {}
-mode['synapse_0'] = synapse_0
-mode['synapse_1'] = synapse_1
-mode['synapse_h'] = synapse_h
-#f = open("model.json",'w')
-#f.write(mode)
-#f.close()
 while 1:
+    print ("--------")
     aa = raw_input()
     bb = raw_input()
     a_int = int(aa)
